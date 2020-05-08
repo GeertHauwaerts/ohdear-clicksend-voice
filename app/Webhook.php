@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\ClickSend;
 use App\OhDear;
 
 class Webhook
