@@ -3,8 +3,6 @@
 This app is a webhook endpoint for [Oh Dear!](https://ohdear.app) and uses [ClickSend](https://clicksend.com)
 to call your engineers when your website is down.
 
-[![Build Status](https://travis-ci.org/GeertHauwaerts/ohdear-clicksend-voice.svg?branch=master)](https://travis-ci.org/GeertHauwaerts/ohdear-clicksend-voice)
-
 ## Installation
 
 The installation is very easy and straightforward:
