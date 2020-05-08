@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<ruleset name="ohdear-clicksend-voice">
+    <description>Oh Dear! ClickSend Voice Notification (Unofficial)</description>
+    <!-- Use all of PSR-2 -->
+    <rule ref="PSR2"/>
+</ruleset>
