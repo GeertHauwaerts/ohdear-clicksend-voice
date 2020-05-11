@@ -28,7 +28,7 @@ $ composer phpcs
 ## Collaboration
 
 The GitHub repository is used to keep track of all the bugs and feature
-requests; I prefer to work uniquely via GitHib and Twitter.
+requests; I prefer to work exclusively via GitHib and Twitter.
 
 If you have a patch to contribute:
 
