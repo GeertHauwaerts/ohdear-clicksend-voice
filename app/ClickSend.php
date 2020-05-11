@@ -46,6 +46,8 @@ class ClickSend
             $vm->setCustomString('ohdear-clicksend-voice');
             $vm->setCountry($this->pnu->getRegionCodeForNumber($r));
             $vm->setSource('php');
+            $vm->setRequireInput(0);
+            $vm->setMachineDetection(1);
             $vm->setLang($lang);
             $collection[] = $vm;
         }
