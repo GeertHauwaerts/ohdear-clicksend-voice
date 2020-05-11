@@ -49,8 +49,10 @@ class Webhook
     private function typeUptimeCheckFailed()
     {
         $msg = implode(' ', [
+            "<speak><prosody volume='x-loud'>",
             "Attention! Monitoring detected that {$this->ohdear->getSiteLabel()} is down.",
             "The latest response was {$this->ohdear->getCheckerResultError()}.",
+            '</prosody></speak>',
         ]);
 
         $this->clicksend->sendVoiceMessage($msg);

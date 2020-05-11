@@ -43,7 +43,7 @@ class ClickSend
             $vm->setTo($this->pnu->format($r, PhoneNumberFormat::E164));
             $vm->setBody($msg);
             $vm->setVoice($voice);
-            $vm->setCustomString("ohdear-clicksend-voice");
+            $vm->setCustomString('ohdear-clicksend-voice');
             $vm->setCountry($this->pnu->getRegionCodeForNumber($r));
             $vm->setSource('php');
             $vm->setLang($lang);
