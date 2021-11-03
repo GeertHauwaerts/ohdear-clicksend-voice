@@ -46,7 +46,7 @@ class Webhook
         }
     }
 
-    private function typeUptimeCheckFailed()
+    private function typeUptimeCheckFailedNotification()
     {
         $msg = implode(' ', [
             "<speak><prosody volume='x-loud'>",
