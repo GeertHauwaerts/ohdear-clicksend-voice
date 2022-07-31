@@ -1,4 +1,4 @@
-ARG VARIANT="20.04"
+ARG VARIANT="22.04"
 FROM mcr.microsoft.com/vscode/devcontainers/base:0-ubuntu${VARIANT}
 
 ##
