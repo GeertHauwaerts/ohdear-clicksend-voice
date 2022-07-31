@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  redis:
+    image: redis
+    container_name: ocv-redis
+    restart: always
+  console:
+    container_name: ocv-console
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/console/Dockerfile
+    volumes:
+      - .:/opt/ocv
+    depends_on:
+      - redis
+  web:
+    container_name: ocv-web
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/web/Dockerfile
+    volumes:
+      - .:/opt/ocv
+    ports:
+      - 8000:8000
+    depends_on:
+      - console
+      - redis

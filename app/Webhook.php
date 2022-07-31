@@ -8,9 +8,12 @@ use App\OhDear;
 class Webhook
 {
     private $required = [
-        'CLICKSEND_API_USERNAME',
         'CLICKSEND_API_PASSWORD',
+        'CLICKSEND_API_USERNAME',
+        'CLICKSEND_CALL_RECIPIENTS',
+        'CLICKSEND_CALL_SNOOZE',
         'OHDEAR_WEBHOOK_SECRET',
+        'REDIS_HOSTNAME',
     ];
 
     private $ohdear;
@@ -56,6 +59,24 @@ class Webhook
         ]);
 
         $this->clicksend->sendVoiceMessage($msg);
+    }
+
+    private function typeTest()
+    {
+        $recipients = [];
+        header('Content-Type: applicaiton/json');
+
+        foreach ($this->clicksend->getRecipients() as $r) {
+            $recipients[$r] = $this->clicksend->isCachedRecipient($r);
+            $this->clicksend->setCachedRecipient($r, 5);
+        }
+
+        echo json_encode([
+            'uuid' => $this->ohdear->getUuid(),
+            'recipients' => $recipients,
+        ]);
+
+        exit();
     }
 
     private function error()

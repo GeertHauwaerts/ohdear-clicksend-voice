@@ -33,19 +33,35 @@ class OhDear
             return false;
         }
 
-        $sig = hash_hmac('sha256', $this->body, $_ENV['OHDEAR_WEBHOOK_SECRET']);
-
-        if ($sig !== $_SERVER['HTTP_OHDEAR_SIGNATURE']) {
+        if ($this->signature($this->body) !== $_SERVER['HTTP_OHDEAR_SIGNATURE']) {
             return false;
         }
 
         return true;
     }
 
+    public function signature($data)
+    {
+        if (is_array($data)) {
+            $data = json_encode($data);
+        }
+
+        return hash_hmac('sha256', $data, $_ENV['OHDEAR_WEBHOOK_SECRET']);
+    }
+
     public function getType()
     {
         if (isset($this->payload->type)) {
             return $this->payload->type;
+        }
+
+        return '';
+    }
+
+    public function getUuid()
+    {
+        if (isset($this->payload->uuid)) {
+            return $this->payload->uuid;
         }
 
         return '';

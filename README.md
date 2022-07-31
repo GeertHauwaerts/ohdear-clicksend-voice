@@ -18,10 +18,17 @@ $ composer install
 
 ## Development & Testing
 
-To verify the integrity of the codebase you can run the PHP linter:
+The app comes with an integrated Docker development environment:
 
 ```console
-$ composer install
+$ docker-compose up
+$ docker exec -it ocv-console /bin/bash
+```
+
+To verify the integrity of the codebase you can run the PHP unit tests and linter:
+
+```console
+$ composer phpunit
 $ composer phpcs
 ```
 
