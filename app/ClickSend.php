@@ -65,6 +65,10 @@ class ClickSend
             $collection[] = $vm;
         }
 
+        if (empty($collection)) {
+            return;
+        }
+
         $vmc = new VoiceMessageCollection();
         $vmc->setMessages($collection);
 
@@ -96,7 +100,7 @@ class ClickSend
     public function setCachedRecipient($recipient, $snooze = 0)
     {
         if ($snooze === 0) {
-            $snooze = $_ENV['CLICKSEND_CALL_RECIPIENTS'];
+            $snooze = $_ENV['CLICKSEND_CALL_SNOOZE'];
         }
 
         $key = "OCV::recipient::{$recipient}";
